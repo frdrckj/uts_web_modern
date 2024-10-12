@@ -1,7 +1,7 @@
 # UTS - IBDA3031 Pengembangan Web Modern
 
-Frederick Armando jerusha - 222203085
-Albert Teofilus Kusumajaya - 222101457
+Frederick Armando jerusha - 222203085 <br>
+Albert Teofilus Kusumajaya - 222101457 <br>
 tulis nama sm nim kalian yak
 
 
