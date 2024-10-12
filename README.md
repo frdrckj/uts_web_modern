@@ -24,4 +24,9 @@ ntr abis git clone, jgn lupa install requirements nya dl biar bs jalan.
 | `git add {filename}`          | Buat nambah file ke staging area sblm di commit                                             |
 | `git commit -m "{message}"`   | Commits file trs tambahin message apa                                                       |
 | `git push`                   | Pushes commits ke repo GitHub                                                                |
+| `git push origin main`       | Pushes the local `main` branch to the `main` branch on the remote repository named `origin`|
 | `git status`                 | Ngecek status (entah ada file yg perlu di pull atau engga, apa aja yg udah di ubah, apa yg perlu di add/commit/atau push) |
+| `git restore {filename}`      | undo file yg udah lu ubah |
+
+
+jgn lupa slalu cek status nya utk tau ada yg perlu lu pull atau engga sblm lu mulai biar gaada conflict pas lu udah mulai ngerjain
