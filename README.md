@@ -17,4 +17,11 @@ ntr abis git clone, jgn lupa install requirements nya dl biar bs jalan.
 ### Run
 1. <b>python3 app.py</b>
 
-
+### Basic git command line
+| Command                       | Description                                                                                 |
+|:------------------------------|:--------------------------------------------------------------------------------------------|
+| `git pull`                    | Buat ngambil file paling update                                                             |
+| `git add {filename}`          | Buat nambah file ke staging area sblm di commit                                             |
+| `git commit -m "{message}"`   | Commits file trs tambahin message apa                                                       |
+| `git push`                   | Pushes commits ke repo GitHub                                                                |
+| `git status`                 | Ngecek status (entah ada file yg perlu di pull atau engga, apa aja yg udah di ubah, apa yg perlu di add/commit/atau push) |
