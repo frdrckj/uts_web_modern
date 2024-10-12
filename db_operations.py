@@ -92,7 +92,6 @@ class MembershipDB:
                 print("No results returned from attendance query")
                 return []
                 
-            print("Attendance Query Results:", results)
             return results
         except Exception as e:
             print(f"Error in get_recent_attendances: {str(e)}")
@@ -119,7 +118,6 @@ class MembershipDB:
                 print("No results returned from payments query")
                 return []
                 
-            print("Payment Query Results:", results)
             return results
         except Exception as e:
             print(f"Error in get_payments: {str(e)}")
