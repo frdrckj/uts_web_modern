@@ -29,4 +29,4 @@ sesuain host, user, password di db_config.py dgn yg lu pake<br>
 | `git restore {filename}`      | undo file yg udah lu ubah |
 
 
-jgn lupa slalu cek status nya utk tau ada yg perlu lu pull atau engga sblm lu mulai biar gaada conflict pas lu udah mulai ngerjain.
+jgn lupa slalu cek status nya utk tau ada yg perlu lu pull atau engga sblm lu mulai biar gaada conflict pas lu udah mulai ngerjain
