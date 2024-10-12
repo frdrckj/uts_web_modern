@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Attendance List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Date/Time</th>
+            <th>Member Code</th>
+            <th>Member Name</th>
+            <th>Transport Type</th>
+            <th>Attendance Number</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for attendance in attendances %}
+        <tr>
+            <td>{{ attendance.check_in_time }}</td>
+            <td>{{ attendance.member_code }}</td>
+            <td>{{ attendance.member_name }}</td>
+            <td>{{ attendance.member_transport_type }}</td>
+            <td>{{ attendance.attendance_number }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

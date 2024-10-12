@@ -1,0 +1,26 @@
+UTS/
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
+├── templates/
+│   ├── attendance/
+│   │   ├── check_in.html
+│   │   └── list.html
+│   ├── members/
+│   │   ├── list.html
+│   │   └── register.html
+│   ├── payments/
+│   │   ├── list.html
+│   └── base.html
+│   └── index.html
+├── app.py
+├── config.py
+├── database.sql
+├── db_config.py
+├── db_operations.py
+├── models.py
+├── project-structure.txt
+├── requirements.txt
+└── routes.py

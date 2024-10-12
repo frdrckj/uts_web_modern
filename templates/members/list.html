@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="list-container">
+    <div class="list-header">
+        <h1>Member List</h1>
+        <a href="{{ url_for('register_member') }}" class="button">Register New Member</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Member Code</th>
+                <th>Name</th>
+                <th>Transport Type</th>
+                <th>Registration Date</th>
+                <th>Fee Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.code }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.transport_type.value }}</td>
+                <td>{{ member.registration_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>{{ "{:,.0f}".format(member.fee_amount) }}</td>
+                <td>
+                    <a href="{{ url_for('check_in') }}?member_code={{ member.code }}" class="button small">Check-in</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
