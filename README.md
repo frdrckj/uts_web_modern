@@ -2,7 +2,7 @@
 
 Frederick Armando jerusha - 222203085 <br>
 Albert Teofilus Kusumajaya - 222101457 <br>
-tulis nama sm nim kalian yak
+Steven Johan Sutantion - 222101439 <br>
 
 
 ntr abis git clone, jgn lupa install requirements nya dl biar bs jalan.
