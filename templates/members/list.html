@@ -25,7 +25,7 @@
                 <td>{{ member.name }}</td>
                 <td>{{ member.transport_type.value }}</td>
                 <td>{{ member.registration_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
-                <td>{{ "{:,.0f}".format(member.fee_amount) }}</td>
+                <td>Rp {{ "{:,.0f}".format(member.fee_amount) }}</td>
                 <td>
                     <a href="{{ url_for('check_in') }}?member_code={{ member.code }}" class="button small">Check-in</a>
                 </td>

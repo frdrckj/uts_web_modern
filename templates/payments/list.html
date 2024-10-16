@@ -20,7 +20,7 @@
             <td>{{ payment.member_code }}</td>
             <td>{{ payment.member_name }}</td>
             <td>{{ payment.member_transport_type }}</td>
-            <td>{{ payment.amount }}</td>
+            <td>Rp {{ "{:,.0f}".format(payment.amount) }}</td>
             <td>{{ payment.attendance_cycle }}</td>
         </tr>
     {% endfor %}
