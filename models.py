@@ -17,7 +17,10 @@ class Member:
 
     @property
     def fee_amount(self) -> int:
-        return 100000 if self.transport_type == TransportType.BUS else 50000
+        if self.transport_type == TransportType.BUS:
+            return 100000
+        else:
+            return 50000
 
     @staticmethod
     def from_db_row(row: dict) -> 'Member':
