@@ -240,10 +240,15 @@ th {
 }
 
 /* Hamburger */
+.navbar {
+    position: relative;
+    z-index: 1000;
+}
+
 .hamburger {
     display: none;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
     width: 30px;
     height: 20px;
     position: relative;
@@ -262,17 +267,9 @@ th {
     transition: .25s ease-in-out;
 }
 
-.hamburger span:nth-child(1) {
-    top: 0px;
-}
-
-.hamburger span:nth-child(2) {
-    top: 8px;
-}
-
-.hamburger span:nth-child(3) {
-    top: 16px;
-}
+.hamburger span:nth-child(1) { top: 0px; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
 
 .hamburger.active span:nth-child(1) {
     top: 8px;
@@ -295,31 +292,33 @@ th {
     }
 
     .nav-links {
+        display: none;
         position: fixed;
-        left: -100%;
-        top: 60px; 
+        left: 0;
+        top: 60px;
         flex-direction: column;
         background-color: #333;
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 999;
     }
 
     .nav-links.active {
-        left: 0;
+        display: flex;
     }
 
     .nav-links li {
-        margin: 2.5rem 0;
+        margin: 1rem 0;
     }
 
     .nav-links li a {
         font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 1rem;
     }
-
 }
-
 
 @media (max-width: 768px){
     .hamburger{

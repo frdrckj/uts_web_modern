@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     });
 
-    // form validation
+    // Form validation
     const forms = document.querySelectorAll('form');
     forms.forEach(function(form) {
         form.addEventListener('submit', function(event) {
@@ -41,33 +41,33 @@ document.addEventListener('DOMContentLoaded', function() {
             cell.setAttribute('data-label', headerCells[index % headerCells.length].textContent);
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const navLinksItems = document.querySelectorAll('.nav-links li');
 
-    function toggleMenu() {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    }
+    if (hamburger && navLinks) {
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
 
-    hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('click', toggleMenu);
 
-    navLinksItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                toggleMenu();
+        const navLinksItems = navLinks.querySelectorAll('li a');
+        navLinksItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (navLinks.classList.contains('active')) {
+                    e.stopPropagation(); // Prevent the click from bubbling up
+                    toggleMenu();
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
             }
         });
-    });
-
-    // Close menu
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        }
-    });
+    }
 });
