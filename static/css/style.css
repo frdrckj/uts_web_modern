@@ -362,3 +362,63 @@ th {
         font-size: 1.2rem;
     }
 }
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 60px);
+    padding-top: 10vh;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Styles for home page layout */
+.home-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.home-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.home-card h2 {
+    margin-bottom: 1rem;
+}
+
+.home-card p {
+    margin-bottom: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card, .home-card {
+        max-width: 90%;
+    }
+    .centered-container {
+        padding-top: 5vh;
+    }
+    .home-container {
+        padding: 1rem;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+}

@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="form-container">
-    <h1>Member Check-in</h1>
-    <form method="POST" action="{{ url_for('check_in') }}">
-        <div class="form-group">
-            <label for="member_code">Member Code:</label>
-            <input type="text" id="member_code" name="member_code" required>
-        </div>
-        
-        <button type="submit">Check-in</button>
-    </form>
+<div class="centered-container">
+    <div class="card">
+        <h1>Member Check-in</h1>
+        <form method="POST" action="{{ url_for('check_in') }}">
+            <div class="form-group">
+                <label for="member_code">Member Code:</label>
+                <input type="text" id="member_code" name="member_code" required>
+            </div>
+            
+            <button type="submit" class="button">Check-in</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

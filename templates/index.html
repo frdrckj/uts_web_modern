@@ -1,28 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="welcome-section">
+<div class="home-container">
     <h1>Fee Membership System</h1>
-    <div class="action-cards">
-        <div class="card">
-            <h2>Member Registration</h2>
-            <p>Register new members for bus or travel services</p>
-            <a href="{{ url_for('register_member') }}" class="button">Register Member</a>
-        </div>
-        
-        <div class="card">
-            <h2>Check-in</h2>
-            <p>Record member attendance</p>
-            <a href="{{ url_for('check_in') }}" class="button">Member Check-in</a>
-        </div>
-        
-        <div class="card">
-            <h2>Reports</h2>
-            <p>View attendance and payment records</p>
-            <div class="button-group">
-                <a href="{{ url_for('attendance_list') }}" class="button">Attendance List</a>
-                <a href="{{ url_for('payment_list') }}" class="button">Payment List</a>
-            </div>
+    
+    <div class="home-card">
+        <h2>Member Registration</h2>
+        <p>Register new members for bus or travel services</p>
+        <a href="{{ url_for('register_member') }}" class="button">Register Member</a>
+    </div>
+    
+    <div class="home-card">
+        <h2>Check-in</h2>
+        <p>Record member attendance</p>
+        <a href="{{ url_for('check_in') }}" class="button">Member Check-in</a>
+    </div>
+    
+    <div class="home-card">
+        <h2>Reports</h2>
+        <p>View attendance and payment records</p>
+        <div class="button-group">
+            <a href="{{ url_for('attendance_list') }}" class="button">Attendance List</a>
+            <a href="{{ url_for('payment_list') }}" class="button">Payment List</a>
         </div>
     </div>
 </div>
