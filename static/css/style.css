@@ -419,3 +419,46 @@ th {
         flex-direction: column;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.pagination .button {
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination .button:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination .button.active {
+    font-weight: bold;
+    color: #000;
+}
+
+.pagination span {
+    margin: 0 0.5rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .pagination .button,
+    .pagination span {
+        margin: 0.25rem;
+    }
+}

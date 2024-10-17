@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Attendance List</h2>
-<table>
+<div class="list-container">
+    <div class="list-header">
+        <h1>{{ title }}</h1>
+        {% if title == "Member List" %}
+        <a href="{{ url_for('register_member') }}" class="button">Register New Member</a>
+        {% endif %}
+    </div>
+
+    <table>
     <thead>
         <tr>
             <th>Date/Time</th>
@@ -24,4 +31,17 @@
     {% endfor %}
     </tbody>
 </table>
+
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for(request.endpoint, page=page-1) }}" class="button">&laquo; Previous</a>
+    {% endif %}
+    
+    <span>Page {{ page }} of {{ total_pages }}</span>
+    
+    {% if page < total_pages %}
+    <a href="{{ url_for(request.endpoint, page=page+1) }}" class="button">Next &raquo;</a>
+    {% endif %}
+</div>
+</div>
 {% endblock %}

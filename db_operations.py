@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict
 from models import Member, Attendance, Payment, TransportType
+from math import ceil
 
 class MembershipDB:
     def __init__(self, db_config):
@@ -22,14 +23,21 @@ class MembershipDB:
         result = self.db.execute_query(query, (code,))
         return Member.from_db_row(result[0]) if result else None
 
-    def get_all_members(self) -> List[Member]:
+    def get_all_members(self, page: int = 1, per_page: int = 15) -> List[Member]:
+        offset = (page - 1) * per_page
         query = """
         SELECT id, code, name, transport_type, registration_date
         FROM members
         ORDER BY registration_date DESC
+        LIMIT %s OFFSET %s
         """
-        results = self.db.execute_query(query)
+        results = self.db.execute_query(query, (per_page, offset))
         return [Member.from_db_row(row) for row in results] if results else []
+
+    def get_total_members(self) -> int:
+        query = "SELECT COUNT(*) as count FROM members"
+        result = self.db.execute_query(query)
+        return result[0]['count'] if result else 0
 
     def record_attendance(self, member_id: int) -> int:
         # Get current attendance count
@@ -72,8 +80,9 @@ class MembershipDB:
         result = self.db.execute_query(query, (member_id,))
         return Member.from_db_row(result[0]) if result else None
 
-    def get_recent_attendances(self) -> List[Dict]:
+    def get_recent_attendances(self, page: int = 1, per_page: int = 15) -> List[Dict]:
         try:
+            offset = (page - 1) * per_page
             query = """
             SELECT 
                 a.id,
@@ -86,8 +95,9 @@ class MembershipDB:
             FROM attendances a
             JOIN members m ON a.member_id = m.id
             ORDER BY a.check_in_time DESC
+            LIMIT %s OFFSET %s
             """
-            results = self.db.execute_query(query)
+            results = self.db.execute_query(query, (per_page, offset))
             if results is None:
                 print("No results returned from attendance query")
                 return []
@@ -97,8 +107,14 @@ class MembershipDB:
             print(f"Error in get_recent_attendances: {str(e)}")
             return []
 
-    def get_payments(self) -> List[Dict]:
+    def get_total_attendances(self) -> int:
+        query = "SELECT COUNT(*) as count FROM attendances"
+        result = self.db.execute_query(query)
+        return result[0]['count'] if result else 0
+
+    def get_payments(self, page: int = 1, per_page: int = 15) -> List[Dict]:
         try:
+            offset = (page - 1) * per_page
             query = """
             SELECT 
                 p.id,
@@ -112,8 +128,9 @@ class MembershipDB:
             FROM payments p
             JOIN members m ON p.member_id = m.id
             ORDER BY p.payment_date DESC
+            LIMIT %s OFFSET %s
             """
-            results = self.db.execute_query(query)
+            results = self.db.execute_query(query, (per_page, offset))
             if results is None:
                 print("No results returned from payments query")
                 return []
@@ -122,6 +139,11 @@ class MembershipDB:
         except Exception as e:
             print(f"Error in get_payments: {str(e)}")
             return []
+
+    def get_total_payments(self) -> int:
+        query = "SELECT COUNT(*) as count FROM payments"
+        result = self.db.execute_query(query)
+        return result[0]['count'] if result else 0
 
     def check_attendance_cooldown(self, member_id: int, cooldown_minutes: int) -> bool:
         query = """

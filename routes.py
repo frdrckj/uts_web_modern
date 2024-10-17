@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash
 from db_config import DatabaseConfig
 from db_operations import MembershipDB
+from math import ceil
 
 db_config = DatabaseConfig()
 db = MembershipDB(db_config)
@@ -13,8 +14,11 @@ def register_routes(app):
     @app.route('/member/list')
     def member_list():
         try:
-            members = db.get_all_members()
-            return render_template('members/list.html', members=members)
+            page = request.args.get('page', 1, type=int)
+            members = db.get_all_members(page=page)
+            total_members = db.get_total_members()
+            total_pages = ceil(total_members / 15)
+            return render_template('members/list.html', members=members, page=page, total_pages=total_pages)
         except Exception as e:
             flash('Error retrieving member list.', 'error')
             return redirect(url_for('index'))
@@ -65,21 +69,23 @@ def register_routes(app):
     @app.route('/attendance/list')
     def attendance_list():
         try:
-            attendances = db.get_recent_attendances()
-            print(f"Retrieved {len(attendances)} attendances") 
-            return render_template('attendance/list.html', attendances=attendances)
+            page = request.args.get('page', 1, type=int)
+            attendances = db.get_recent_attendances(page=page)
+            total_attendances = db.get_total_attendances()
+            total_pages = ceil(total_attendances / 15)
+            return render_template('attendance/list.html', attendances=attendances, page=page, total_pages=total_pages)
         except Exception as e:
-            print(f"Exception in attendance_list route: {str(e)}")  
             flash('Error retrieving attendance list.', 'error')
             return redirect(url_for('index'))
 
     @app.route('/payments/list')
     def payment_list():
         try:
-            payments = db.get_payments()
-            print(f"Retrieved {len(payments)} payments") 
-            return render_template('payments/list.html', payments=payments)
+            page = request.args.get('page', 1, type=int)
+            payments = db.get_payments(page=page)
+            total_payments = db.get_total_payments()
+            total_pages = ceil(total_payments / 15)
+            return render_template('payments/list.html', payments=payments, page=page, total_pages=total_pages)
         except Exception as e:
-            print(f"Exception in payment_list route: {str(e)}") 
             flash('Error retrieving payment list.', 'error')
             return redirect(url_for('index'))
