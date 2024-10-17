@@ -32,13 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add responsive table functionality
     const tables = document.querySelectorAll('table');
     tables.forEach(function(table) {
         const headerCells = table.querySelectorAll('th');
         const dataCells = table.querySelectorAll('td');
 
-        // Add data-label attribute 
         dataCells.forEach(function(cell, index) {
             cell.setAttribute('data-label', headerCells[index % headerCells.length].textContent);
         });
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close menu when clicking outside
+    // Close menu
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             hamburger.classList.remove('active');
