@@ -379,7 +379,6 @@ th {
     max-width: 400px;
 }
 
-/* Styles for home page layout */
 .home-container {
     padding: 2rem;
     max-width: 800px;
@@ -407,7 +406,6 @@ th {
     gap: 1rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .card, .home-card {
         max-width: 90%;
