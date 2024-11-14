@@ -13,3 +13,7 @@ Cara Instalasi:
 
 <b>Link Presentasi UTS</b>
 <br>https://drive.google.com/file/d/1VN8Pb6QVdh52qK7Nz7zDP6pSxV1Ya9KI/view?usp=sharing
+
+
+<b>Link Github</b>
+<br>https://github.com/frdrckj/uts_web_modern.git
